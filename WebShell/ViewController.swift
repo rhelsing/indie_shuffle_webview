@@ -512,53 +512,53 @@ class ViewController: NSViewController, WebFrameLoadDelegate, WebUIDelegate, Web
     // @wdg Add Notification Support
     // Issue: #2
     func makeNotification(title: NSString, message: NSString, icon: NSString) {
-        let notification:NSUserNotification = NSUserNotification() // Set up Notification
-
-        // If has no message (title = message)
-        if (message.isEqualToString("undefined")) {
-            notification.title = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as? String // Use App name!
-            notification.informativeText = title as String   // Title   = string
-        } else {
-            notification.title = title as String             // Title   = string
-            notification.informativeText = message as String // Message = string
-        }
-
-        
-        notification.soundName = NSUserNotificationDefaultSoundName // Default sound
-        notification.deliveryDate = NSDate(timeIntervalSinceNow: 0) // Now!
-        notification.actionButtonTitle = "Close"
-
-        // Notification has a icon, so add it!
-        if (!icon.isEqualToString("undefined")) {
-            notification.contentImage = NSImage(contentsOfURL: NSURL(string: icon as String)!);
-        }
-        
-        let notificationcenter: NSUserNotificationCenter? = NSUserNotificationCenter.defaultUserNotificationCenter() // Notification centre
-        notificationcenter?.scheduleNotification(notification) // Pushing to notification centre
-        
-        notificationCount++
-        
-        NSApplication.sharedApplication().dockTile.badgeLabel = String(notificationCount)
+//        let notification:NSUserNotification = NSUserNotification() // Set up Notification
+//
+//        // If has no message (title = message)
+//        if (message.isEqualToString("undefined")) {
+//            notification.title = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as? String // Use App name!
+//            notification.informativeText = title as String   // Title   = string
+//        } else {
+//            notification.title = title as String             // Title   = string
+//            notification.informativeText = message as String // Message = string
+//        }
+//
+//        
+//        notification.soundName = NSUserNotificationDefaultSoundName // Default sound
+//        notification.deliveryDate = NSDate(timeIntervalSinceNow: 0) // Now!
+//        notification.actionButtonTitle = "Close"
+//
+//        // Notification has a icon, so add it!
+//        if (!icon.isEqualToString("undefined")) {
+//            notification.contentImage = NSImage(contentsOfURL: NSURL(string: icon as String)!);
+//        }
+//        
+//        let notificationcenter: NSUserNotificationCenter? = NSUserNotificationCenter.defaultUserNotificationCenter() // Notification centre
+//        notificationcenter?.scheduleNotification(notification) // Pushing to notification centre
+//        
+//        notificationCount++
+//        
+//        NSApplication.sharedApplication().dockTile.badgeLabel = String(notificationCount)
     }
     
     // @wdg Add Notification Support
     // Issue: #2
     func flashScreen(data: NSString) {
-        if ((Int(data as String)) != nil || data.isEqualToString("undefined")) {
-            AudioServicesPlaySystemSound(kSystemSoundID_FlashScreen);
-        } else {
-            let time:NSArray = (data as String).componentsSeparatedByString(",")
-            for(var i = 0; i < time.count; i++) {
-                var timeAsInt = NSNumberFormatter().numberFromString(time[i] as! String)
-                timeAsInt = Int(timeAsInt!)/100
-                NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(timeAsInt!), target: self, selector: Selector("flashScreenNow"), userInfo: nil, repeats: false)
-            }
-        }
+//        if ((Int(data as String)) != nil || data.isEqualToString("undefined")) {
+//            AudioServicesPlaySystemSound(kSystemSoundID_FlashScreen);
+//        } else {
+//            let time:NSArray = (data as String).componentsSeparatedByString(",")
+//            for(var i = 0; i < time.count; i++) {
+//                var timeAsInt = NSNumberFormatter().numberFromString(time[i] as! String)
+//                timeAsInt = Int(timeAsInt!)/100
+//                NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(timeAsInt!), target: self, selector: Selector("flashScreenNow"), userInfo: nil, repeats: false)
+//            }
+//        }
     }
     
     // @wdg Add Notification Support
     // Issue: #2
     func flashScreenNow() {
-        AudioServicesPlaySystemSound(kSystemSoundID_FlashScreen);
+//        AudioServicesPlaySystemSound(kSystemSoundID_FlashScreen);
     }
 }
